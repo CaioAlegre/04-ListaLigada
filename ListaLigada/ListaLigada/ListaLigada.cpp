@@ -73,7 +73,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista já possuir elementos
+	// se a lista jÃ¡ possuir elementos
 	// libera a memoria ocupada
 	NO* aux = primeiro;
 	while (aux != NULL) {
@@ -118,6 +118,7 @@ void exibirElementos()
 void inserirElemento()
 {
 	// aloca memoria dinamicamente para o novo elemento
+
 	NO* novo = (NO*)malloc(sizeof(NO));
 	if (novo == NULL)
 	{
@@ -131,15 +132,15 @@ void inserirElemento()
 	if (primeiro == NULL)
 	{
 		primeiro = novo;
+		ultimo = primeiro;
 	}
 	else
 	{
 		// procura o final da lista
-		NO* aux = primeiro;
-		while (aux->prox != NULL) {
-			aux = aux->prox;
-		}
-		aux->prox = novo;
+		ultimo->prox=novo;
+		ultimo = primeiro;
+	}
+	cout<<"Valor Desejado: ";
 	}
 }
 
@@ -150,13 +151,23 @@ void excluirElemento()
 
 void buscarElemento()
 {
-	
+	int BuscarNumero;
+	cout << "Digite o Numero desejado: ";
+	cin >> BuscarNumero;
+	if(posicaoElemento(BuscarNumero) !=NULL){
+		cout << "Encontrado";
+
+	}
+
+	else{
+		cout << "Elemento nÃ£o encontrado";
+	}
 }
 
 
 
 // retorna um ponteiro para o elemento buscado
-// ou NULL se o elemento não estiver na lista
+// ou NULL se o elemento nÃ£o estiver na lista
 NO* posicaoElemento(int numero)
 {
 	NO* aux = primeiro;
