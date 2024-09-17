@@ -9,6 +9,7 @@ struct NO {
 };
 
 NO* primeiro = NULL;
+NO* ultimo = NULL;
 
 // headers
 void menu();
@@ -141,7 +142,7 @@ void inserirElemento()
 		ultimo = primeiro;
 	}
 	cout<<"Valor Desejado: ";
-	}
+	
 }
 
 void excluirElemento()
